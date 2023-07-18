@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-mq-sender-config
+data:
+  application.yml: |
+    server:
+      port: 8080
+
+    spring:
+      rabbitmq:
+        host: rabbitmq-cluster.default.svc.cluster.local
+        port: 5672
+        username: admin
+        password: admin

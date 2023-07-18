@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-mq-sender
+spec:
+  selector:
+    app: test-mq-sender
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

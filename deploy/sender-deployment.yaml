@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-mq-sender
+  labels:
+    app: test-mq-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-mq-sender
+  template:
+    metadata:
+      labels:
+        app: test-mq-sender
+    spec:
+      containers:
+        - name: test-mq-sender
+          image: yjring/test-mq-sender:1.0.1
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: test-mq-sender-config
