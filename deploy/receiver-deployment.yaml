@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-mq-receiver
-          image: yjring/test-mq-receiver:1.0.0
+          image: yjring/test-mq-receiver:1.0.1
           ports:
             - containerPort: 8080
           volumeMounts:
